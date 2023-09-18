@@ -1,17 +1,7 @@
 <?php
 
 include_once "views/top.php";
-include_once "views/nav.php";
 include_once "views/header.php";
-include_once "sysgem/postGen.php";
-
-// if(checkSession("username")){
-//     if(getSession("username")  != "minhtut"){
-//         header("Location:index.php");
-//     }
-// }else{
-//     header("Location:index.php");
-// }
 
  if(isset($_POST['submit']) ){
     $posttitle = $_POST["posttitle"];

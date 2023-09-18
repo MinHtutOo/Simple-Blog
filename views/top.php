@@ -1,6 +1,6 @@
 <?php
 session_start();
-    include_once "sysgem/MySession.php";
+    
 ?>
 
 <!DOCTYPE html>
@@ -14,3 +14,11 @@ session_start();
     
 </head>
 <body>
+
+<?php
+    include_once "sysgem/MySession.php";
+    include_once "sysgem/postGen.php";
+    include_once "sysgem/member.php";
+    include_once "views/nav.php";
+
+?>

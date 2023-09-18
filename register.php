@@ -2,8 +2,6 @@
 
 <?php
 include_once "views/top.php";
-include_once "views/nav.php";
-require_once "sysgem/member.php";
 
 
 if(isset($_POST["submit"])){

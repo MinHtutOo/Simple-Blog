@@ -12,13 +12,13 @@ function insertPost($title,$type,$writer,$content,$imglink,$subject) {
     return $result;
 }
 
-function getAllPost($type){
+function getAllPost($type,$start){
     $db = dbConnect();
     $qry = "";
     if($type == 1){
-        $qry = "SELECT * FROM post WHERE type=$type";
+        $qry = "SELECT * FROM post WHERE type=$type LIMIT $start,10";
     }else{
-        $qry = "SELECT * FROM post";
+        $qry = "SELECT * FROM post LIMIT $start,10";
     }
     $result = mysqli_query($db,$qry);
     return $result;
@@ -56,6 +56,13 @@ function getAllSubject(){
     $result = mysqli_query($db,$qry);
     return $result;
 
+}
+
+function getPostCount(){
+    $db = dbConnect();
+    $qry = "SELECT * FROM post";
+    $result = mysqli_query($db,$qry);
+    return mysqli_num_rows($result);
 }
 
 

@@ -1,8 +1,14 @@
 <?php
 include_once "views/top.php";
-include_once "views/nav.php";
 include_once "views/header.php";
-include_once "sysgem/postGen.php";
+
+if(checkSession("username")){
+    if(getSession("username")  != "minhtut"){
+        header("Location:index.php");
+    }
+}else{
+    header("Location:index.php");
+}
 
 if(isset($_POST['submit']) ){
     $posttitle = $_POST["posttitle"];
@@ -11,10 +17,6 @@ if(isset($_POST['submit']) ){
     $postcontent = $_POST["postcontent"];
     $subject = $_POST["subject"];
     
-    // echo "Post Title is " . $posttitle ."<br>";
-    // echo "Post Type is " . $posttype ."<br>";
-    // echo "Post Writer is " . $postwriter ."<br>";
-    // echo "Post Content is " . $postcontent ."<br>";
 
     $imglink = mt_rand(time(),time()) ."_". $_FILES["file"]["name"] .mt_rand(time(),time());
     move_uploaded_file($_FILES['file']['tmp_name'], 'assets/uploads/'. $imglink);
@@ -95,6 +97,7 @@ if(isset($_POST['submit']) ){
         </section>
     </div>
 </div>
+
 
 <?php
     include_once "views/footer.php";
